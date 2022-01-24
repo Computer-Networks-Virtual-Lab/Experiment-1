@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+  --top-inset: 20px;
+  --left-inset: 30px;
+
+  --bg-color: #191919;
+  --sub-bg-color: #2d2d2d;
+  --sub-bg-dark-color: #292929;
+  --text-color: #dbdbdb;
+  --border-color: #707070;
+
+  --orange-color: #e04f23;
+  --green-color: #087f34;
+  --blue-color: #08677f;
+  --brown-color: #54452e;
+  --white-color: var(--text-color);
+
+  --success-color: #b6e364;
+  --fail-color: #e96743;
+
+  --x1: 500px;
+  --x2: 900px;
+
+  --y1: 250px;
+  --y2: 300px;
+  --y3: 350px;
+  --y4: 400px;
+  --y5: 450px;
+  --y6: 500px;
+  --y7: 550px;
+  --y8: 600px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+#svg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  background-color: var(--sub-bg-color);
+  width: 55vw;
+  padding: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  border-radius: 0 0 5rem 5rem;
+  margin-bottom: 2rem;
+}
+
+.flex_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex_container p {
+  margin-right: 1rem;
+  color: var(--text-color);
+}
+
+/* ############ */
+/* ## SELECT ## */
+/* ############ */
+
+.select {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--sub-bg-dark-color);
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+.select:hover::after {
+  color: #f39c12;
+}
+
+select {
+  outline: 0;
+  border: 0;
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--sub-bg-color);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* ############################ */
+/* ## COLORED CIRCLE HANDLES ## */
+/* ############################ */
+
+#handle11,
+#handle12 {
+  fill: var(--orange-color);
+}
+#handle21,
+#handle22 {
+  fill: var(--green-color);
+}
+#handle31,
+#handle32 {
+  fill: var(--blue-color);
+}
+#handle41,
+#handle42 {
+  fill: var(--brown-color);
+}
+#handle51,
+#handle52 {
+  fill: var(--orange-color);
+}
+#handle61,
+#handle62 {
+  fill: var(--green-color);
+}
+#handle71,
+#handle72 {
+  fill: var(--blue-color);
+}
+#handle81,
+#handle82 {
+  fill: var(--brown-color);
+}
+
+/* ################### */
+/* ## COLORED PATHS ## */
+/* ################### */
+
+.path {
+  fill: none;
+  stroke-width: 6px;
+}
+.path_w {
+  stroke: white;
+  fill: none;
+  stroke-width: 6px;
+}
+
+#path1 {
+  stroke-dasharray: 15, 5;
+  stroke: var(--orange-color);
+}
+#path2 {
+  stroke-dasharray: 15, 5;
+  stroke: var(--green-color);
+}
+#path3 {
+  stroke-dasharray: 15, 5;
+  stroke: var(--blue-color);
+}
+#path4 {
+  stroke-dasharray: 15, 5;
+  stroke: var(--brown-color);
+}
+#path5 {
+  stroke: var(--orange-color);
+}
+#path6 {
+  stroke: var(--green-color);
+}
+#path7 {
+  stroke: var(--blue-color);
+}
+#path8 {
+  stroke: var(--brown-color);
+}
+
+/* ########### */
+/* ## PORTS ## */
+/* ########### */
+
+.port {
+  margin: 0px 10px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--sub-bg-color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+#port11 {
+  top: calc(var(--y1) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port12 {
+  top: calc(var(--y1) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port21 {
+  top: calc(var(--y2) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port22 {
+  top: calc(var(--y2) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port31 {
+  top: calc(var(--y3) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port32 {
+  top: calc(var(--y3) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port41 {
+  top: calc(var(--y4) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port42 {
+  top: calc(var(--y4) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port51 {
+  top: calc(var(--y5) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port52 {
+  top: calc(var(--y5) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port61 {
+  top: calc(var(--y6) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port62 {
+  top: calc(var(--y6) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port71 {
+  top: calc(var(--y7) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port72 {
+  top: calc(var(--y7) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
+#port81 {
+  top: calc(var(--y8) - var(--top-inset));
+  left: calc(var(--x2) - var(--left-inset));
+}
+#port82 {
+  top: calc(var(--y8) - var(--top-inset));
+  left: calc(var(--x1) - var(--left-inset));
+}
