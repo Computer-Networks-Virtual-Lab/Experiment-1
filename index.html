@@ -8,83 +8,90 @@
     <link rel="stylesheet" href="./style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TweenLite.min.js"></script> -->
   </head>
 
   <body>
-    <div>
-      <div class="heading">
-        <h1>FABRICATE CABLE</h1>
-      </div>
-      <div class="flex_container">
-        <p>Which cable you want to fabricate?</p>
-        <div class="select">
-          <select>
-            <option value="1">Choose Cable</option>
-            <option value="2">Straight</option>
-            <option value="3">Cross</option>
-            <option value="3">RollOver</option>
-          </select>
+    <div class="wrapper">
+      <div id="header_container">
+        <div class="heading">
+          <h1>FABRICATE CABLE</h1>
         </div>
+        <div class="options">
+          <p>Which cable you want to fabricate?</p>
+          <div class="select">
+            <select>
+              <option value="1">Choose Cable</option>
+              <option value="2">Straight</option>
+              <option value="3">Cross</option>
+              <option value="3">RollOver</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="main_container">
+        <svg id="svg">
+          <path class="path_w" id="path_w1" />
+          <path class="path" id="path1" />
+          <circle class="handle" id="handle11" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle12" cx="0" cy="0" r="8" />
+
+          <path class="path_w" id="path_w2" />
+          <path class="path" id="path2" />
+          <circle class="handle" id="handle21" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle22" cx="0" cy="0" r="8" />
+
+          <path class="path_w" id="path_w3" />
+          <path class="path" id="path3" />
+          <circle class="handle" id="handle31" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle32" cx="0" cy="0" r="8" />
+
+          <path class="path_w" id="path_w4" />
+          <path class="path" id="path4" />
+          <circle class="handle" id="handle41" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle42" cx="0" cy="0" r="8" />
+
+          <path class="path" id="path5" />
+          <circle class="handle" id="handle51" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle52" cx="0" cy="0" r="8" />
+
+          <path class="path" id="path6" />
+          <circle class="handle" id="handle61" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle62" cx="0" cy="0" r="8" />
+
+          <path class="path" id="path7" />
+          <circle class="handle" id="handle71" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle72" cx="0" cy="0" r="8" />
+
+          <path class="path" id="path8" />
+          <circle class="handle" id="handle81" cx="0" cy="0" r="8" />
+          <circle class="handle" id="handle82" cx="0" cy="0" r="8" />
+        </svg>
+
+        <div class="port" id="port11"></div>
+        <div class="port" id="port12"></div>
+        <div class="port" id="port21"></div>
+        <div class="port" id="port22"></div>
+        <div class="port" id="port31"></div>
+        <div class="port" id="port32"></div>
+        <div class="port" id="port41"></div>
+        <div class="port" id="port42"></div>
+        <div class="port" id="port51"></div>
+        <div class="port" id="port52"></div>
+        <div class="port" id="port61"></div>
+        <div class="port" id="port62"></div>
+        <div class="port" id="port71"></div>
+        <div class="port" id="port72"></div>
+        <div class="port" id="port81"></div>
+        <div class="port" id="port82"></div>
+      </div>
+
+      <div id="footer_container">
+        <button class="resetBtn">Reset</button>
+        <h1 class="status">CONGRATULATIONS</h1>
       </div>
     </div>
 
-    <div class="port" id="port11"></div>
-    <div class="port" id="port12"></div>
-    <div class="port" id="port21"></div>
-    <div class="port" id="port22"></div>
-    <div class="port" id="port31"></div>
-    <div class="port" id="port32"></div>
-    <div class="port" id="port41"></div>
-    <div class="port" id="port42"></div>
-    <div class="port" id="port51"></div>
-    <div class="port" id="port52"></div>
-    <div class="port" id="port61"></div>
-    <div class="port" id="port62"></div>
-    <div class="port" id="port71"></div>
-    <div class="port" id="port72"></div>
-    <div class="port" id="port81"></div>
-    <div class="port" id="port82"></div>
-
-    <svg id="svg">
-      <path class="path_w" id="path_w1" />
-      <path class="path" id="path1" />
-      <circle class="handle" id="handle11" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle12" cx="0" cy="0" r="8" />
-
-      <path class="path_w" id="path_w2" />
-      <path class="path" id="path2" />
-      <circle class="handle" id="handle21" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle22" cx="0" cy="0" r="8" />
-
-      <path class="path_w" id="path_w3" />
-      <path class="path" id="path3" />
-      <circle class="handle" id="handle31" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle32" cx="0" cy="0" r="8" />
-
-      <path class="path_w" id="path_w4" />
-      <path class="path" id="path4" />
-      <circle class="handle" id="handle41" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle42" cx="0" cy="0" r="8" />
-
-      <path class="path" id="path5" />
-      <circle class="handle" id="handle51" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle52" cx="0" cy="0" r="8" />
-
-      <path class="path" id="path6" />
-      <circle class="handle" id="handle61" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle62" cx="0" cy="0" r="8" />
-
-      <path class="path" id="path7" />
-      <circle class="handle" id="handle71" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle72" cx="0" cy="0" r="8" />
-
-      <path class="path" id="path8" />
-      <circle class="handle" id="handle81" cx="0" cy="0" r="8" />
-      <circle class="handle" id="handle82" cx="0" cy="0" r="8" />
-    </svg>
-
-    <button id="resetBtn">Reset</button>
     <script src="./script.js"></script>
   </body>
 </html>

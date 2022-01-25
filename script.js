@@ -1,14 +1,14 @@
 const x1 = 500;
 const x2 = 900;
 
-const y1 = 250;
-const y2 = 300;
-const y3 = 350;
-const y4 = 400;
-const y5 = 450;
-const y6 = 500;
-const y7 = 550;
-const y8 = 600;
+const y1 = 50;
+const y2 = 100;
+const y3 = 150;
+const y4 = 200;
+const y5 = 250;
+const y6 = 300;
+const y7 = 350;
+const y8 = 400;
 
 // Amount to offset control points
 var bezierWeight = 0.675;
@@ -18,6 +18,7 @@ var handles = document.querySelectorAll(".handle");
 var path = document.querySelectorAll(".path");
 var path_w = document.querySelectorAll(".path_w");
 var resetBtn = document.getElementById("resetBtn");
+var container = document.getElementById("container");
 
 TweenLite.set(handles[0], { x: x2, y: y1 });
 TweenLite.set(handles[1], { x: x1, y: y1 });
@@ -37,7 +38,7 @@ TweenLite.set(handles[14], { x: x2, y: y8 });
 TweenLite.set(handles[15], { x: x1, y: y8 });
 
 Draggable.create(handles, {
-  // bounds: container,
+  bounds: container,
   onDrag: updatePath,
   liveSnap: {
     points: [

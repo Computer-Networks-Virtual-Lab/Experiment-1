@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 
 :root {
-  --top-inset: 20px;
+  --top-inset: -130px;
   --left-inset: 30px;
 
   --bg-color: #191919;
@@ -22,14 +22,14 @@
   --x1: 500px;
   --x2: 900px;
 
-  --y1: 250px;
-  --y2: 300px;
-  --y3: 350px;
-  --y4: 400px;
-  --y5: 450px;
-  --y6: 500px;
-  --y7: 550px;
-  --y8: 600px;
+  --y1: 50px;
+  --y2: 100px;
+  --y3: 150px;
+  --y4: 200px;
+  --y5: 250px;
+  --y6: 300px;
+  --y7: 350px;
+  --y8: 400px;
 }
 
 * {
@@ -40,39 +40,59 @@
 body {
   background-color: var(--bg-color);
   font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
   display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+#header_container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#main_container {
+  width: 100vw;
+  flex: 1;
+  min-height: 30rem;
+}
+#footer_container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-#svg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
+/* ############ */
+/* ## HEADER ## */
+/* ############ */
 
 .heading {
   background-color: var(--sub-bg-color);
+  color: var(--text-color);
   width: 55vw;
   padding: 1rem;
-  color: var(--text-color);
   text-align: center;
   border-radius: 0 0 5rem 5rem;
   margin-bottom: 2rem;
 }
 
-.flex_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flex_container p {
-  margin-right: 1rem;
-  color: var(--text-color);
-}
-
 /* ############ */
 /* ## SELECT ## */
 /* ############ */
+
+.options {
+  display: flex;
+  align-items: center;
+}
+.options p {
+  color: var(--text-color);
+  margin-right: 1rem;
+}
 
 .select {
   z-index: 1;
@@ -83,7 +103,6 @@ body {
   border-radius: 0.25em;
   overflow: hidden;
 }
-
 .select::after {
   content: "\25BC";
   position: absolute;
@@ -94,7 +113,6 @@ body {
   transition: 0.25s all ease;
   pointer-events: none;
 }
-
 .select:hover::after {
   color: #f39c12;
 }
@@ -109,23 +127,38 @@ select {
   cursor: pointer;
   font-size: 1rem;
 }
-
 select::-ms-expand {
   display: none;
 }
 
-#resetBtn {
-  position: absolute;
-  bottom: 1rem;
+/* ############ */
+/* ## FOOTER ## */
+/* ############ */
+
+.resetBtn {
   padding: 10px 20px;
+  margin: 15px 25px;
   border: 0;
   background-color: var(--sub-bg-color);
   color: var(--text-color);
   border-radius: 5px;
 }
-#resetBtn:hover {
+.resetBtn:hover {
   cursor: pointer;
   background-color: var(--sub-bg-dark-color);
+}
+.status {
+  color: var(--text-color);
+}
+
+/* ########## */
+/* ## MAIN ## */
+/* ########## */
+
+#svg {
+  position: fixed;
+  width: 100%;
+  min-height: 31rem;
 }
 
 /* ############################ */
@@ -219,6 +252,7 @@ select::-ms-expand {
   background-color: var(--sub-bg-color);
   border-radius: 50%;
   position: absolute;
+  z-index: -1;
 }
 
 #port11 {
