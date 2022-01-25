@@ -114,6 +114,20 @@ select::-ms-expand {
   display: none;
 }
 
+#resetBtn {
+  position: absolute;
+  bottom: 1rem;
+  padding: 10px 20px;
+  border: 0;
+  background-color: var(--sub-bg-color);
+  color: var(--text-color);
+  border-radius: 5px;
+}
+#resetBtn:hover {
+  cursor: pointer;
+  background-color: var(--sub-bg-dark-color);
+}
+
 /* ############################ */
 /* ## COLORED CIRCLE HANDLES ## */
 /* ############################ */
