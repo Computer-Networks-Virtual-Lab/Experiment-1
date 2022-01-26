@@ -16,8 +16,8 @@
   --brown-color: #54452e;
   --white-color: var(--text-color);
 
-  --success-color: #b6e364;
-  --fail-color: #e96743;
+  --success-color: #2bff00;
+  --fail-color: #ff0000;
 
   --x1: 500px;
   --x2: 900px;
@@ -56,6 +56,7 @@ body {
   flex-direction: column;
 }
 #main_container {
+  background-color: #050f18;
   width: 100vw;
   flex: 1;
   min-height: 30rem;
@@ -72,7 +73,7 @@ body {
 /* ############ */
 
 .heading {
-  background-color: var(--sub-bg-color);
+  background: linear-gradient(90deg,#0400ff,#09ff00);
   color: var(--text-color);
   width: 55vw;
   padding: 1rem;
@@ -85,11 +86,103 @@ body {
 /* ## SELECT ## */
 /* ############ */
 
+.line1
+{
+    width: 615px;
+    color: white;
+    text-align: center;
+    /* margin: 10px 10px; */
+    padding: 0px 0px 0px 25px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 40px;
+    overflow: hidden;
+    background: linear-gradient(90deg,rgb(9, 0, 94),rgb(31, 191, 255));
+}
+
+select 
+{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;  
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+.input1 {
+  width: 304px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  /* margin: 10px 50px; */
+  width: fit-content;
+  padding: 12px 25px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 40px;
+  overflow: hidden;
+  background: linear-gradient(90deg,#0162c8,#55e7fc);
+  /* animation: animatein 0.5s linear; */
+} 
+
 .options {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
-.options p {
+
+select *
+{
+    border-radius: 40px;
+    background-color: #0162c8;
+}
+
+/* .input1:hover {
+  animation: animateout 0.5s linear;
+  background: linear-gradient(90deg,#55e7fc,#0162c8);
+}
+
+@keyframes animateout
+{
+    0%
+    {
+      background: linear-gradient(90deg,#0162c8,#55e7fc);
+    }
+    50%
+    {
+      background: linear-gradient(90deg,#0162c8,#55e7fc,#0162c8);
+    }
+    100%
+    {
+      background: linear-gradient(90deg,#55e7fc,#0162c8);
+    }
+}
+
+@keyframes animatein
+{
+    0%
+    {
+      background: linear-gradient(90deg,#55e7fc,#0162c8);
+    }
+    50%
+    {
+      background: linear-gradient(90deg,#55e7fc,#0162c8,#55e7fc);
+    }
+    100%
+    {
+      background: linear-gradient(90deg,#0162c8,#55e7fc);
+    }
+} */
+
+/* .options label {
   color: var(--text-color);
   margin-right: 1rem;
 }
@@ -102,8 +195,8 @@ body {
   height: 3em;
   border-radius: 0.25em;
   overflow: hidden;
-}
-.select::after {
+} */
+/* .select::after {
   content: "\25BC";
   position: absolute;
   top: 0;
@@ -113,9 +206,7 @@ body {
   transition: 0.25s all ease;
   pointer-events: none;
 }
-.select:hover::after {
-  color: #f39c12;
-}
+
 
 select {
   outline: 0;
@@ -129,7 +220,7 @@ select {
 }
 select::-ms-expand {
   display: none;
-}
+} */
 
 /* ############ */
 /* ## FOOTER ## */
@@ -159,6 +250,7 @@ select::-ms-expand {
   position: fixed;
   width: 100%;
   min-height: 31rem;
+  z-index: 1;
 }
 
 /* ############################ */
@@ -252,70 +344,70 @@ select::-ms-expand {
   background-color: var(--sub-bg-color);
   border-radius: 50%;
   position: absolute;
-  z-index: -1;
+  z-index: inherit;
 }
 
 #port11 {
-  top: calc(var(--y1) - var(--top-inset));
+  top: calc(var(--y1) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port12 {
-  top: calc(var(--y1) - var(--top-inset));
+  top: calc(var(--y1) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port21 {
-  top: calc(var(--y2) - var(--top-inset));
+  top: calc(var(--y2) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port22 {
-  top: calc(var(--y2) - var(--top-inset));
+  top: calc(var(--y2) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port31 {
-  top: calc(var(--y3) - var(--top-inset));
+  top: calc(var(--y3) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port32 {
-  top: calc(var(--y3) - var(--top-inset));
+  top: calc(var(--y3) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port41 {
-  top: calc(var(--y4) - var(--top-inset));
+  top: calc(var(--y4) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port42 {
-  top: calc(var(--y4) - var(--top-inset));
+  top: calc(var(--y4) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port51 {
-  top: calc(var(--y5) - var(--top-inset));
+  top: calc(var(--y5) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port52 {
-  top: calc(var(--y5) - var(--top-inset));
+  top: calc(var(--y5) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port61 {
-  top: calc(var(--y6) - var(--top-inset));
+  top: calc(var(--y6) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port62 {
-  top: calc(var(--y6) - var(--top-inset));
+  top: calc(var(--y6) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port71 {
-  top: calc(var(--y7) - var(--top-inset));
+  top: calc(var(--y7) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port72 {
-  top: calc(var(--y7) - var(--top-inset));
+  top: calc(var(--y7) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
 #port81 {
-  top: calc(var(--y8) - var(--top-inset));
+  top: calc(var(--y8) - var(--top-inset) + 18px);
   left: calc(var(--x2) - var(--left-inset));
 }
 #port82 {
-  top: calc(var(--y8) - var(--top-inset));
+  top: calc(var(--y8) - var(--top-inset) + 18px);
   left: calc(var(--x1) - var(--left-inset));
 }
