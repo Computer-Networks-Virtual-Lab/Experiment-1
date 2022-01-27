@@ -1,5 +1,5 @@
-const x1 = 500;
-const x2 = 900;
+const x1 = window.innerWidth / 2 - 170;
+const x2 = window.innerWidth / 2 + 230;
 
 const y1 = 50;
 const y2 = 100;
@@ -10,6 +10,18 @@ const y6 = 300;
 const y7 = 350;
 const y8 = 400;
 
+const i_y1 = 50;
+const i_y2 = 400;
+
+const i_x1 = 20;
+const i_x2 = 40;
+const i_x3 = 60;
+const i_x4 = 80;
+const i_x5 = window.innerWidth - 80;
+const i_x6 = window.innerWidth - 60;
+const i_x7 = window.innerWidth - 40;
+const i_x8 = window.innerWidth - 20;
+
 // Amount to offset control points
 var bezierWeight = 0.675;
 
@@ -18,9 +30,28 @@ var handles = document.querySelectorAll(".handle");
 var path = document.querySelectorAll(".path");
 var path_w = document.querySelectorAll(".path_w");
 var resetBtn = document.querySelector(".resetBtn");
-var container = document.getElementById("container");
+var container = document.getElementById("main_container");
 
-const coordinates = [
+const initialPortCoordinates = [
+  { x: i_x1, y: i_y1 },
+  { x: i_x1, y: i_y2 },
+  { x: i_x2, y: i_y1 },
+  { x: i_x2, y: i_y2 },
+  { x: i_x3, y: i_y1 },
+  { x: i_x3, y: i_y2 },
+  { x: i_x4, y: i_y1 },
+  { x: i_x4, y: i_y2 },
+  { x: i_x5, y: i_y1 },
+  { x: i_x5, y: i_y2 },
+  { x: i_x6, y: i_y1 },
+  { x: i_x6, y: i_y2 },
+  { x: i_x7, y: i_y1 },
+  { x: i_x7, y: i_y2 },
+  { x: i_x8, y: i_y1 },
+  { x: i_x8, y: i_y2 },
+];
+
+const portCoordinates = [
   { x: x2, y: y1 },
   { x: x1, y: y1 },
   { x: x2, y: y2 },
@@ -40,14 +71,14 @@ const coordinates = [
 ];
 
 for (let i = 0; i < 16; i++) {
-  TweenLite.set(handles[i], coordinates[i]);
+  TweenLite.set(handles[i], initialPortCoordinates[i]);
 }
 
 Draggable.create(handles, {
   bounds: container,
   onDrag: updatePath,
   liveSnap: {
-    points: coordinates,
+    points: portCoordinates,
     radius: 20,
   },
 });
@@ -75,10 +106,10 @@ function updatePath() {
 function onReset() {
   console.log("ON RESET");
   for (let i = 0, j = 0; i < 16, j < 8; i = i + 2, j++) {
-    var x1 = coordinates[i].x;
-    var y1 = coordinates[i].y;
-    var x2 = coordinates[i + 1].x;
-    var y2 = coordinates[i + 1].y;
+    var x1 = initialPortCoordinates[i].x;
+    var y1 = initialPortCoordinates[i].y;
+    var x2 = initialPortCoordinates[i + 1].x;
+    var y2 = initialPortCoordinates[i + 1].y;
     var dx = Math.abs(x2 - x1) * bezierWeight;
     var _dx1 = x1 - dx;
     var _dx2 = x2 + dx;
@@ -87,7 +118,7 @@ function onReset() {
     path[j].setAttribute("d", data);
   }
   for (let i = 0; i < 16; i++) {
-    TweenLite.set(handles[i], coordinates[i]);
+    TweenLite.set(handles[i], initialPortCoordinates[i]);
   }
 }
 

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 
 :root {
-  --top-inset: -130px;
+  --top-inset: -147px;
   --left-inset: 30px;
 
   --bg-color: #191919;
@@ -54,9 +54,10 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 1rem;
 }
 #main_container {
-  background-color: #050F18;
+  background-color: #131313;
   width: 100vw;
   flex: 1;
   min-height: 30rem;
@@ -247,6 +248,22 @@ select::-ms-expand {
 /* ## PORTS ## */
 /* ########### */
 
+.portBox {
+  background-color: #0f0f0f;
+  z-index: inherit;
+  height: 425px;
+  width: 80px;
+  position: absolute;
+  top: 180px;
+  border-radius: 10px;
+}
+#portBox1 {
+  left: calc(100vw - 50% - 210px);
+}
+#portBox2 {
+  left: calc(100vw - 50% + 190px);
+}
+
 .port {
   margin: 0px 10px;
   height: 40px;
@@ -259,65 +276,65 @@ select::-ms-expand {
 
 #port11 {
   top: calc(var(--y1) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port12 {
   top: calc(var(--y1) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port21 {
   top: calc(var(--y2) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port22 {
   top: calc(var(--y2) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port31 {
   top: calc(var(--y3) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port32 {
   top: calc(var(--y3) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port41 {
   top: calc(var(--y4) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port42 {
   top: calc(var(--y4) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port51 {
   top: calc(var(--y5) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port52 {
   top: calc(var(--y5) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port61 {
   top: calc(var(--y6) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port62 {
   top: calc(var(--y6) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port71 {
   top: calc(var(--y7) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port72 {
   top: calc(var(--y7) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
 #port81 {
   top: calc(var(--y8) - var(--top-inset));
-  left: calc(var(--x2) - var(--left-inset));
+  left: calc(100vw - 50% + 200px);
 }
 #port82 {
   top: calc(var(--y8) - var(--top-inset));
-  left: calc(var(--x1) - var(--left-inset));
+  left: calc(100vw - 50% - 200px);
 }
