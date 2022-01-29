@@ -30,9 +30,10 @@ var handles = document.querySelectorAll(".handle");
 var path = document.querySelectorAll(".path");
 var path_w = document.querySelectorAll(".path_w");
 var resetBtn = document.querySelector(".resetBtn");
+var evalBtn = document.querySelector(".evalBtn");
 var container = document.getElementById("main_container");
 
-const initialPortCoordinates = [
+const initialHandleCoordinates = [
   { x: i_x1, y: i_y1 },
   { x: i_x1, y: i_y2 },
   { x: i_x2, y: i_y1 },
@@ -71,7 +72,7 @@ const portCoordinates = [
 ];
 
 for (let i = 0; i < 16; i++) {
-  TweenLite.set(handles[i], initialPortCoordinates[i]);
+  TweenLite.set(handles[i], initialHandleCoordinates[i]);
 }
 
 Draggable.create(handles, {
@@ -106,10 +107,10 @@ function updatePath() {
 function onReset() {
   console.log("ON RESET");
   for (let i = 0, j = 0; i < 16, j < 8; i = i + 2, j++) {
-    var x1 = initialPortCoordinates[i].x;
-    var y1 = initialPortCoordinates[i].y;
-    var x2 = initialPortCoordinates[i + 1].x;
-    var y2 = initialPortCoordinates[i + 1].y;
+    var x1 = initialHandleCoordinates[i].x;
+    var y1 = initialHandleCoordinates[i].y;
+    var x2 = initialHandleCoordinates[i + 1].x;
+    var y2 = initialHandleCoordinates[i + 1].y;
     var dx = Math.abs(x2 - x1) * bezierWeight;
     var _dx1 = x1 - dx;
     var _dx2 = x2 + dx;
@@ -118,9 +119,45 @@ function onReset() {
     path[j].setAttribute("d", data);
   }
   for (let i = 0; i < 16; i++) {
-    TweenLite.set(handles[i], initialPortCoordinates[i]);
+    TweenLite.set(handles[i], initialHandleCoordinates[i]);
+  }
+}
+
+function check()
+{
+  const hc = [
+    { x: gsap.getProperty(handles[1], "x") == x2, y: gsap.getProperty(handles[1], "y")==y1 },
+    { x: gsap.getProperty(handles[0], "x") == x1, y: gsap.getProperty(handles[0], "y")==y1 },
+    { x: gsap.getProperty(handles[3], "x") == x2, y: gsap.getProperty(handles[3], "y")==y3 },
+    { x: gsap.getProperty(handles[2], "x") == x1, y: gsap.getProperty(handles[2], "y")==y3 },
+    { x: gsap.getProperty(handles[5], "x") == x2, y: gsap.getProperty(handles[5], "y")==y5 },
+    { x: gsap.getProperty(handles[4], "x") == x1, y: gsap.getProperty(handles[4], "y")==y5 },
+    { x: gsap.getProperty(handles[7], "x") == x2, y: gsap.getProperty(handles[7], "y")==y7 },
+    { x: gsap.getProperty(handles[6], "x") == x1, y: gsap.getProperty(handles[6], "y")==y7 },
+    { x: gsap.getProperty(handles[9], "x") == x2, y: gsap.getProperty(handles[9], "y")==y2 },
+    { x: gsap.getProperty(handles[8], "x") == x1, y: gsap.getProperty(handles[8], "y")==y2 },
+    { x: gsap.getProperty(handles[11], "x") == x2, y: gsap.getProperty(handles[11], "y")==y6 },
+    { x: gsap.getProperty(handles[10], "x") == x1, y: gsap.getProperty(handles[10], "y")==y6 },
+    { x: gsap.getProperty(handles[13], "x") == x2, y: gsap.getProperty(handles[13], "y")==y4 },
+    { x: gsap.getProperty(handles[12], "x") == x1, y: gsap.getProperty(handles[12], "y")==y4 },
+    { x: gsap.getProperty(handles[15], "x") == x2, y: gsap.getProperty(handles[15], "y")==y8 },
+    { x: gsap.getProperty(handles[14], "x") == x1, y: gsap.getProperty(handles[14], "y")==y8 }
+  ]
+  var t=0;
+  for (let i = 0, j = 0; i < 16, j < 8; i = i + 2, j++)
+  {
+    if(hc[i].x != true || hc[i].y != true)
+    {
+      t=1;
+      document.getElementById(`p${j+1}2`).style.color = "blue";
+    }
+    if(hc[i+1].x != true || hc[i+1].y != true)
+    {
+
+    }
   }
 }
 
 updatePath();
 resetBtn.addEventListener("click", onReset);
+evalBtn.addEventListener("click", check);

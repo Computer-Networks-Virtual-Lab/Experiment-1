@@ -17,13 +17,13 @@
           <h1>FABRICATE CABLE</h1>
         </div>
         <div class="options">
-          <p>Which cable you want to fabricate?</p>
+          <p>Cable Configuration: </p>
           <div class="select">
             <select>
-              <option value="1">Choose Cable</option>
-              <option value="2">Straight</option>
-              <option value="3">CrossOver</option>
-              <option value="3">RollOver</option>
+              <option value="0">Choose Configuration</option>
+              <option value="1">STRAIGHT</option>
+              <option value="2">CROSSOVER</option>
+              <option value="3">ROLLOVER</option>
             </select>
           </div>
         </div>
@@ -32,42 +32,45 @@
       <div id="main_container">
         <svg id="svg">
           <path class="path_w" id="path_w1" />
-          <path class="path" id="path1" />
+          <path class="path orange_white" id="path1" />
           <circle class="handle" id="handle11" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle12" cx="0" cy="0" r="8" />
 
           <path class="path_w" id="path_w2" />
-          <path class="path" id="path2" />
+          <path class="path green_white" id="path2" />
           <circle class="handle" id="handle21" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle22" cx="0" cy="0" r="8" />
 
           <path class="path_w" id="path_w3" />
-          <path class="path" id="path3" />
+          <path class="path blue_white" id="path3" />
           <circle class="handle" id="handle31" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle32" cx="0" cy="0" r="8" />
 
           <path class="path_w" id="path_w4" />
-          <path class="path" id="path4" />
+          <path class="path brown_white" id="path4" />
           <circle class="handle" id="handle41" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle42" cx="0" cy="0" r="8" />
 
-          <path class="path" id="path5" />
+          <path class="path orange" id="path5" />
           <circle class="handle" id="handle51" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle52" cx="0" cy="0" r="8" />
 
-          <path class="path" id="path6" />
+          <path class="path green" id="path6" />
           <circle class="handle" id="handle61" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle62" cx="0" cy="0" r="8" />
 
-          <path class="path" id="path7" />
+          <path class="path blue" id="path7" />
           <circle class="handle" id="handle71" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle72" cx="0" cy="0" r="8" />
 
-          <path class="path" id="path8" />
+          <path class="path brown" id="path8" />
           <circle class="handle" id="handle81" cx="0" cy="0" r="8" />
           <circle class="handle" id="handle82" cx="0" cy="0" r="8" />
         </svg>
 
+        <div class="lbox" id="box"></div>
+        <div class="rbox" id="box"></div>
+        
         <div id="blah"></div>
         <div class="portBox" id="portBox1"></div>
         <div class="portBox" id="portBox2"></div>
@@ -90,8 +93,9 @@
       </div>
 
       <div id="footer_container">
-        <button class="resetBtn">Reset</button>
-        <h1 class="status">CONGRATULATIONS</h1>
+        <button class="resetBtn Btn">RESET</button>
+        <h1 class="status" style="display: none;">CONGRATULATIONS</h1>
+        <button class="evalBtn Btn">EVALUATE</button>
       </div>
     </div>
 
