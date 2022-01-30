@@ -16,8 +16,11 @@
   --brown-color: #54452e;
   --white-color: var(--text-color);
 
-  --success-color: #b6e364;
-  --fail-color: #e96743;
+  /* --success-color: #2bff00;
+  --fail-color: #ff0000; */
+
+  --success-color: #64e251;
+  --fail-color: #ab0000;
 
   --x1: 500px;
   --x2: 900px;
@@ -57,7 +60,7 @@ body {
   padding-bottom: 1rem;
 }
 #main_container {
-  background-color: #131313;
+  background-color: #050f18;
   width: 100vw;
   flex: 1;
   min-height: 30rem;
@@ -66,7 +69,7 @@ body {
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /* ############ */
@@ -137,7 +140,7 @@ select::-ms-expand {
 /* ## FOOTER ## */
 /* ############ */
 
-.resetBtn {
+.Btn {
   padding: 10px 20px;
   margin: 15px 25px;
   border: 0;
@@ -145,7 +148,7 @@ select::-ms-expand {
   color: var(--text-color);
   border-radius: 5px;
 }
-.resetBtn:hover {
+.Btn:hover {
   cursor: pointer;
   background-color: var(--sub-bg-dark-color);
 }
@@ -249,7 +252,7 @@ select::-ms-expand {
 /* ########### */
 
 .portBox {
-  background-color: #0f0f0f;
+  background-color: #535353;
   z-index: inherit;
   height: 425px;
   width: 80px;
@@ -268,7 +271,7 @@ select::-ms-expand {
   margin: 0px 10px;
   height: 40px;
   width: 40px;
-  background-color: var(--sub-bg-color);
+  background-color: var(--sub-bg-dark-color);
   border-radius: 50%;
   position: absolute;
   z-index: inherit;
@@ -337,4 +340,49 @@ select::-ms-expand {
 #port82 {
   top: calc(var(--y8) - var(--top-inset));
   left: calc(100vw - 50% - 200px);
+}
+
+#box {
+  position: absolute;
+  top: calc(0 - var(--top-inset));
+  height: 489px;
+  flex: 1;
+  width: 105px;
+  background-color: var(--sub-bg-dark-color);
+}
+
+.lbox {
+  left: 0px;
+}
+
+.rbox {
+  right: 0px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 400px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 110px;
+  left: 45px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
