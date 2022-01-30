@@ -358,3 +358,31 @@ select::-ms-expand {
 .rbox {
   right: 0px;
 }
+
+.tooltip {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 400px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 110px;
+  left: 45px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

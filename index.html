@@ -19,7 +19,7 @@
         <div class="options">
           <p>Cable Configuration: </p>
           <div class="select">
-            <select>
+            <select id="configuration">
               <option value="0">Choose Configuration</option>
               <option value="1">STRAIGHT</option>
               <option value="2">CROSSOVER</option>
@@ -94,9 +94,16 @@
 
       <div id="footer_container">
         <button class="resetBtn Btn">RESET</button>
-        <h1 class="status" style="display: none;">CONGRATULATIONS</h1>
+        <h1 id="status"></h1>
         <button class="evalBtn Btn">EVALUATE</button>
       </div>
+    </div>
+
+    <div class="tooltip">
+      <img src="/twotone_info_black_24dp.png" style="background: white; padding: 0 0; border-radius: 50%; height: 30px; position: absolute; top: 120px; left: 10px;"/>
+      <span class="tooltiptext">
+        Drag and Drop the Connectors to the given Ports as per the configuration.
+      </span>
     </div>
 
     <script src="./script.js"></script>

@@ -32,6 +32,8 @@ var path_w = document.querySelectorAll(".path_w");
 var resetBtn = document.querySelector(".resetBtn");
 var evalBtn = document.querySelector(".evalBtn");
 var container = document.getElementById("main_container");
+var conf = document.getElementById("configuration");
+var statu = document.getElementById("status");
 
 const initialHandleCoordinates = [
   { x: i_x1, y: i_y1 },
@@ -88,11 +90,11 @@ function updatePath() {
   for (let i = 0, j = 0; i < 16, j < 8; i = i + 2, j++) {
     var _x1 = gsap.getProperty(handles[i], "x");
     var _y1 = gsap.getProperty(handles[i], "y");
-    console.log(`handle ${j + 1}1: ${_x1}, ${_y1}`);
+    // console.log(`handle ${j + 1}1: ${_x1}, ${_y1}`);
 
     var _x2 = gsap.getProperty(handles[i + 1], "x");
     var _y2 = gsap.getProperty(handles[i + 1], "y");
-    console.log(`handle ${j + 1}2: ${_x2}, ${_y2}`);
+    // console.log(`handle ${j + 1}2: ${_x2}, ${_y2}`);
 
     var dx = Math.abs(_x2 - _x1) * bezierWeight;
     var _dx1 = _x1 - dx;
@@ -125,36 +127,125 @@ function onReset() {
 
 function check()
 {
-  const hc = [
-    { x: gsap.getProperty(handles[1], "x") == x2, y: gsap.getProperty(handles[1], "y")==y1 },
-    { x: gsap.getProperty(handles[0], "x") == x1, y: gsap.getProperty(handles[0], "y")==y1 },
-    { x: gsap.getProperty(handles[3], "x") == x2, y: gsap.getProperty(handles[3], "y")==y3 },
-    { x: gsap.getProperty(handles[2], "x") == x1, y: gsap.getProperty(handles[2], "y")==y3 },
-    { x: gsap.getProperty(handles[5], "x") == x2, y: gsap.getProperty(handles[5], "y")==y5 },
-    { x: gsap.getProperty(handles[4], "x") == x1, y: gsap.getProperty(handles[4], "y")==y5 },
-    { x: gsap.getProperty(handles[7], "x") == x2, y: gsap.getProperty(handles[7], "y")==y7 },
-    { x: gsap.getProperty(handles[6], "x") == x1, y: gsap.getProperty(handles[6], "y")==y7 },
-    { x: gsap.getProperty(handles[9], "x") == x2, y: gsap.getProperty(handles[9], "y")==y2 },
-    { x: gsap.getProperty(handles[8], "x") == x1, y: gsap.getProperty(handles[8], "y")==y2 },
-    { x: gsap.getProperty(handles[11], "x") == x2, y: gsap.getProperty(handles[11], "y")==y6 },
-    { x: gsap.getProperty(handles[10], "x") == x1, y: gsap.getProperty(handles[10], "y")==y6 },
-    { x: gsap.getProperty(handles[13], "x") == x2, y: gsap.getProperty(handles[13], "y")==y4 },
-    { x: gsap.getProperty(handles[12], "x") == x1, y: gsap.getProperty(handles[12], "y")==y4 },
-    { x: gsap.getProperty(handles[15], "x") == x2, y: gsap.getProperty(handles[15], "y")==y8 },
-    { x: gsap.getProperty(handles[14], "x") == x1, y: gsap.getProperty(handles[14], "y")==y8 }
-  ]
+  var val = conf.value;
+  if(val==1)
+  {
+    var hc = [
+      { x: gsap.getProperty(handles[1], "x") == x1, y: gsap.getProperty(handles[1], "y")==y1, t:1 },
+      { x: gsap.getProperty(handles[0], "x") == x2, y: gsap.getProperty(handles[0], "y")==y1, t:1 },
+      { x: gsap.getProperty(handles[3], "x") == x1, y: gsap.getProperty(handles[3], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[2], "x") == x2, y: gsap.getProperty(handles[2], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[5], "x") == x1, y: gsap.getProperty(handles[5], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[4], "x") == x2, y: gsap.getProperty(handles[4], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[7], "x") == x1, y: gsap.getProperty(handles[7], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[6], "x") == x2, y: gsap.getProperty(handles[6], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[9], "x") == x1, y: gsap.getProperty(handles[9], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[8], "x") == x2, y: gsap.getProperty(handles[8], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[11], "x") == x1, y: gsap.getProperty(handles[11], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[10], "x") == x2, y: gsap.getProperty(handles[10], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[13], "x") == x1, y: gsap.getProperty(handles[13], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[12], "x") == x2, y: gsap.getProperty(handles[12], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[15], "x") == x1, y: gsap.getProperty(handles[15], "y")==y8, t:8 },
+      { x: gsap.getProperty(handles[14], "x") == x2, y: gsap.getProperty(handles[14], "y")==y8, t:8 }
+    ]
+  }
+  else if(val==2)
+  {
+    // var hc = [
+    //   { x: gsap.getProperty(handles[1], "x") == x1, y: gsap.getProperty(handles[1], "y")==y1, t:1 },
+    //   { x: gsap.getProperty(handles[0], "x") == x2, y: gsap.getProperty(handles[0], "y")==y3, t:3 },
+    //   { x: gsap.getProperty(handles[3], "x") == x1, y: gsap.getProperty(handles[3], "y")==y3, t:3 },
+    //   { x: gsap.getProperty(handles[2], "x") == x2, y: gsap.getProperty(handles[2], "y")==y1, t:1 },
+    //   { x: gsap.getProperty(handles[5], "x") == x1, y: gsap.getProperty(handles[5], "y")==y5, t:5 },
+    //   { x: gsap.getProperty(handles[4], "x") == x2, y: gsap.getProperty(handles[4], "y")==y5, t:5 },
+    //   { x: gsap.getProperty(handles[7], "x") == x1, y: gsap.getProperty(handles[7], "y")==y7, t:7 },
+    //   { x: gsap.getProperty(handles[6], "x") == x2, y: gsap.getProperty(handles[6], "y")==y7, t:7 },
+    //   { x: gsap.getProperty(handles[9], "x") == x1, y: gsap.getProperty(handles[9], "y")==y2, t:2 },
+    //   { x: gsap.getProperty(handles[8], "x") == x2, y: gsap.getProperty(handles[8], "y")==y6, t:6 },
+    //   { x: gsap.getProperty(handles[11], "x") == x1, y: gsap.getProperty(handles[11], "y")==y6, t:6 },
+    //   { x: gsap.getProperty(handles[10], "x") == x2, y: gsap.getProperty(handles[10], "y")==y2, t:2 },
+    //   { x: gsap.getProperty(handles[13], "x") == x1, y: gsap.getProperty(handles[13], "y")==y4, t:4 },
+    //   { x: gsap.getProperty(handles[12], "x") == x2, y: gsap.getProperty(handles[12], "y")==y4, t:4 },
+    //   { x: gsap.getProperty(handles[15], "x") == x1, y: gsap.getProperty(handles[15], "y")==y8, t:8 },
+    //   { x: gsap.getProperty(handles[14], "x") == x2, y: gsap.getProperty(handles[14], "y")==y8, t:8 }
+    // ]
+    var hc = [
+      { x: gsap.getProperty(handles[1], "x") == x1, y: gsap.getProperty(handles[1], "y")==y1, t:1 },
+      { x: gsap.getProperty(handles[0], "x") == x2, y: gsap.getProperty(handles[0], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[3], "x") == x1, y: gsap.getProperty(handles[3], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[2], "x") == x2, y: gsap.getProperty(handles[2], "y")==y1, t:1 },
+      { x: gsap.getProperty(handles[5], "x") == x1, y: gsap.getProperty(handles[5], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[4], "x") == x2, y: gsap.getProperty(handles[4], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[7], "x") == x1, y: gsap.getProperty(handles[7], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[6], "x") == x2, y: gsap.getProperty(handles[6], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[9], "x") == x1, y: gsap.getProperty(handles[9], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[8], "x") == x2, y: gsap.getProperty(handles[8], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[11], "x") == x1, y: gsap.getProperty(handles[11], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[10], "x") == x2, y: gsap.getProperty(handles[10], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[13], "x") == x1, y: gsap.getProperty(handles[13], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[12], "x") == x2, y: gsap.getProperty(handles[12], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[15], "x") == x1, y: gsap.getProperty(handles[15], "y")==y8, t:8 },
+      { x: gsap.getProperty(handles[14], "x") == x2, y: gsap.getProperty(handles[14], "y")==y8, t:8 }
+    ]
+  }
+  else if(val==3)
+  {
+    var hc = [
+      { x: gsap.getProperty(handles[1], "x") == x1, y: gsap.getProperty(handles[1], "y")==y1, t:1 },
+      { x: gsap.getProperty(handles[0], "x") == x2, y: gsap.getProperty(handles[0], "y")==y8, t:8 },
+      { x: gsap.getProperty(handles[3], "x") == x1, y: gsap.getProperty(handles[3], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[2], "x") == x2, y: gsap.getProperty(handles[2], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[5], "x") == x1, y: gsap.getProperty(handles[5], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[4], "x") == x2, y: gsap.getProperty(handles[4], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[7], "x") == x1, y: gsap.getProperty(handles[7], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[6], "x") == x2, y: gsap.getProperty(handles[6], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[9], "x") == x1, y: gsap.getProperty(handles[9], "y")==y2, t:2 },
+      { x: gsap.getProperty(handles[8], "x") == x2, y: gsap.getProperty(handles[8], "y")==y7, t:7 },
+      { x: gsap.getProperty(handles[11], "x") == x1, y: gsap.getProperty(handles[11], "y")==y6, t:6 },
+      { x: gsap.getProperty(handles[10], "x") == x2, y: gsap.getProperty(handles[10], "y")==y3, t:3 },
+      { x: gsap.getProperty(handles[13], "x") == x1, y: gsap.getProperty(handles[13], "y")==y4, t:4 },
+      { x: gsap.getProperty(handles[12], "x") == x2, y: gsap.getProperty(handles[12], "y")==y5, t:5 },
+      { x: gsap.getProperty(handles[15], "x") == x1, y: gsap.getProperty(handles[15], "y")==y8, t:8 },
+      { x: gsap.getProperty(handles[14], "x") == x2, y: gsap.getProperty(handles[14], "y")==y1, t:1 }
+    ]
+  }
+  else
+  {
+    statu.style.color = '#fff';
+    statu.textContent = "Select Configuration";
+  }
+
+  console.log(hc);
+  console.log(val);
   var t=0;
   for (let i = 0, j = 0; i < 16, j < 8; i = i + 2, j++)
   {
     if(hc[i].x != true || hc[i].y != true)
     {
       t=1;
-      document.getElementById(`p${j+1}2`).style.color = "blue";
+      document.getElementById(`port${hc[i].t}2`).style.backgroundColor = '#ab0000';
+    }
+    else
+    {
+      document.getElementById(`port${hc[i].t}2`).style.backgroundColor = '#64e251';
     }
     if(hc[i+1].x != true || hc[i+1].y != true)
     {
-
+      t=1;
+      document.getElementById(`port${hc[i+1].t}1`).style.backgroundColor = '#ab0000';
     }
+    else
+    {
+      document.getElementById(`port${hc[i+1].t}1`).style.backgroundColor = '#64e251';
+    }
+  }
+  if(t == 0) {
+    statu.style.color = '#64e251';
+    statu.textContent = "Congratulations, Correct Configuration!";
+  }
+  else if(t == 1) {
+    statu.style.color = '#ab0000';
+    statu.textContent = "Incorrect Configuration :(";
   }
 }
 
